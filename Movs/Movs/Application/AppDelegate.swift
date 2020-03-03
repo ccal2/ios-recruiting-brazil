@@ -13,22 +13,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Variables
 
-    var window: UIWindow?
+    var coordinator: AppCoordinator?
 
     // MARK: - App life cycle
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        self.screenSetup()
+        self.coordinator = AppCoordinator()
+        self.coordinator?.start()
 
         return true
-    }
-
-    // MARK: - Screnn setup
-
-    private func screenSetup() {
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = MovsViewController()
-        self.window?.makeKeyAndVisible()
     }
 }
