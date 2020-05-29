@@ -12,17 +12,16 @@ class AppCoordinator: NSObject {
 
     // MARK: - Variables
 
-    private var window: UIWindow
-
     // MARK: TabCoordinator protocol
 
     let tabBarController: UITabBarController
     var childCoordinators: [Coordinator]
 
-    // MARK: - Initializers
+    // MARK: - Methods
+
+    // MARK: Initializers
 
     override init() {
-        self.window = UIWindow(frame: UIScreen.main.bounds)
         self.tabBarController = UITabBarController()
         self.childCoordinators = []
 
@@ -71,8 +70,5 @@ extension AppCoordinator: TabCoordinator {
         self.tabBarController.tabBar.tintColor = .systemIndigo
 
         self.childCoordinators = [popularCoordinator, favoriteCoordinator]
-
-        self.window.rootViewController = self.tabBarController
-        self.window.makeKeyAndVisible()
     }
 }
